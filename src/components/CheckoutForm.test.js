@@ -20,13 +20,14 @@ test("shows success message on submit with form details", async () => {
     const address = screen.getByLabelText(/address/i)
     const city = screen.getByLabelText(/city/i)
     const state = screen.getByLabelText(/state/i)
-    const zipcode = screen.getByLabelText(/zip/i)
+    const zip = screen.getByLabelText(/zip/i)
 
     userEvent.type(firstName, 'nathan')
     userEvent.type(lastName, 'cheney')
     userEvent.type(address, '1234 joe schmoe road')
     userEvent.type(city, 'columbia')
     userEvent.type(state, 'missouri')
+    userEvent.type(zip, '65201')
     
     
     
@@ -45,6 +46,7 @@ test("shows success message on submit with form details", async () => {
         expect(screen.getByTestId('successMessage')).toHaveTextContent('1234 joe schmoe road');
         expect(screen.getByTestId('successMessage')).toHaveTextContent('columbia');
         expect(screen.getByTestId('successMessage')).toHaveTextContent('missouri');
+        expect(screen.getByTestId('successMessage')).toHaveTextContent('65201');
         
     })
         
